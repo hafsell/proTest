@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\http\Controllers\studContro;
+use App\http\Controllers\AdminContro;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,17 +37,27 @@ Route::get('/', function () {
 //             return 'hello'. $id ; 
 //         })->name('user');
 //     });
-// Route::fallback(function(){
-//     return view('404h');
-// });
+Route::fallback(function(){
+    return view('404h');
+});
 // Route::get('users/{name}',function($name){
 //     return view('users',['name'=>$name]);
 // });
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Route::view('/test','test');
-Route::get('/test', function () {
-    return view('test');
+Route::view('test','layouts.test');
+// Route::get('/test', function () {
+//     return view('test');
+// });
+Route::group(['prefix'=> 'students', 'as'=>'students.'],function(){
+        Route::get('profile',[studContro::class,'show'])->name('profile');
+
+Route::view('notes','students.note')->name('notes');
 });
+ //Route::view('admin','admin.index');
+ Route::resource('admin', AdminContro::class)->except(['create','edit','update']);
+ Route::put('admin','AdminContro@update')->name('admin.update');
+
+ 

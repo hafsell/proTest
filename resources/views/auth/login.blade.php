@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -37,8 +37,75 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                            <title>login</title>
+                            <link rel="stylesheet" href="/css/login.css">
+                        </head>
+                        <body>
+                            
+                        </body>
+                        </html>
 
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-2"></div>
+                                <div class="col-lg-6 col-md-8 login-box">
+                                    <div class="col-lg-12 login-key">
+                                        <i class="fa fa-key" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col-lg-12 login-title">
+                                        ADMIN PANEL
+                                    </div>
+                    
+                                    <div class="col-lg-12 login-form">
+                                        <div class="col-lg-12 login-form">
+                                        <form method="POST" action="{{ route('login') }}">
+                     @csrf
+                                                <div class="form-group">
+                                                    <label class="form-control-label">{{ __('Email Address') }}</label>
+                                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-control-label">{{ __('Password') }}</label>
+                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                               @error('password')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                    
+                      </div>
+                    
+                                                <div class="col-lg-12 loginbttm">
+                                                    <div class="col-lg-6 login-btm login-text">
+                                                        <!-- Error Message -->
+                                                    </div>
+                                                    <div class="col-lg-6 login-btm login-button">
+                                                        <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2"></div>
+                                </div>
+                            </div>
+                    
+                    
+                    
+                    
+                    
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
@@ -51,11 +118,11 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
+                        {{-- <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
-                                </button>
+                                </button> --}}
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
