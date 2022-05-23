@@ -28,7 +28,7 @@
          <a href="{{Route('students.profile')}}">  Profile </a></button>
       <button class="nav-link @yield('noteActive')" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
          <a href="{{Route('students.notes')}}">  notes </a></button>
-      <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false" disabled>Disabled</button>
+      <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false" disabled>nothing</button>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
